@@ -11,5 +11,9 @@ spec:
   resources:
     requests:
       storage: {{ .Values.apiserver.storage.config.size | quote }}
+  {{- if .Values.apiserver.storage.useStaticVolume }}
+  volumeName: {{ .Values.apiserver.storage.staticVolumeName | quote }}
+  {{- else }}
   storageClassName: {{ .Values.apiserver.storage.config.class | quote }}
+  {{- end }}
 {{- end }}

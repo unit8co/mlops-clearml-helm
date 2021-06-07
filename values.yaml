@@ -53,6 +53,8 @@ apiserver:
   # Optional: used in pvc-apiserver containing optional server configuration files
   storage:
     enableConfigVolume: false
+    useStaticVolume: true
+    staticVolumeName: ""
     config:
       class: "standard"
       size: 1Gi
@@ -92,6 +94,8 @@ fileserver:
   affinity: {}
 
   storage:
+    useStaticVolume: true
+    staticVolumeName: ""
     data:
       class: "standard"
       size: 50Gi
@@ -175,6 +179,8 @@ agentservices:
   affinity: {}
 
   storage:
+    useStaticVolume: true
+    staticVolumeName: ""
     data:
       class: "standard"
       size: 50Gi

@@ -10,4 +10,8 @@ spec:
   resources:
     requests:
       storage: {{ .Values.agentservices.storage.data.size | quote }}
+  {{- if .Values.agentservices.storage.useStaticVolume }}
+  volumeName: {{ .Values.agentservices.storage.staticVolumeName | quote }}
+  {{- else }}
   storageClassName: {{ .Values.agentservices.storage.data.class | quote }}
+  {{- end }}
