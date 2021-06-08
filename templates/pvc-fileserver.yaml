@@ -12,6 +12,5 @@ spec:
       storage: {{ .Values.fileserver.storage.data.size | quote }}
   {{- if .Values.fileserver.storage.useStaticVolume }}
   volumeName: {{ .Values.fileserver.storage.staticVolumeName | quote }}
-  {{- else }}
+  {{- end }}
   storageClassName: {{ .Values.fileserver.storage.data.class | quote }}
-  {{- end }} 
